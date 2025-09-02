@@ -1,0 +1,26 @@
+// tsconfig.json
+
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "isolatedModules": true,
+    "noEmit": true,   // <--- ADD THIS LINE
+
+    // Paths
+    "baseUrl": ".",
+    "paths": {
+      "$apps/*": ["src/apps/*"],
+      "$store": ["src/store.ts"],
+      "$components/*": ["src/components/*"],
+      "$lib/*": ["src/lib/*"]
+    }
+  },
+  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
